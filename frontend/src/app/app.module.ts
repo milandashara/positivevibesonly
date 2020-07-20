@@ -15,9 +15,11 @@ import { ArticleComponent } from './shared/components/article/article.component'
 import { HealthComponent } from './shared/components/health/health.component';
 import { RelationComponent } from './shared/components/relation/relation.component';
 import { FinanceComponent } from './shared/components/finance/finance.component';
+import { ArticlelistComponent } from './shared/components/articlelist/articlelist.component';
 // import { AuthContainerComponent } from './auth/components/auth-container/auth-container.component';
 // import { RegistrationComponent } from './auth/components/registration/registration.component';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,7 @@ ArticleComponent,
 HealthComponent,
 RelationComponent,
 FinanceComponent,
+ArticlelistComponent,
     // AuthContainerComponent,
     // RegistrationComponent
   ],
@@ -37,9 +40,10 @@ FinanceComponent,
     FormsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-
     MaterialModule,
-    MenuModule
+    MenuModule,
+    MatPaginatorModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

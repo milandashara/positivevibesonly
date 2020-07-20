@@ -20,8 +20,9 @@
     <mat-sidenav-content>
         <div class="content-wrapper">
             <router-outlet></router-outlet>
-          <div>{{ selectedCategory }}</div>
-          <app-article [article]="selectedArticle"></app-article>
+          <!-- <div>{{ selectedCategory }}</div> -->
+          <!-- <app-article [article]="selectedArticle"></app-article> -->
+          <app-articlelist></app-articlelist>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
