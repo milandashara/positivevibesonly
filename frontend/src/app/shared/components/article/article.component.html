@@ -1,0 +1,14 @@
+<div *ngIf="article">
+
+  <h2>{{article.header | uppercase}}</h2>
+  <div><span>Written By: </span><b>{{article.author}}</b></div>
+  <mat-card>
+  <div>
+    <p>
+      {{ article.text}}
+    </p>
+  </div>
+  </mat-card>
+
+
+</div>
