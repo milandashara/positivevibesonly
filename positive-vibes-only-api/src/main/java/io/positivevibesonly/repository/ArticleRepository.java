@@ -15,7 +15,7 @@ public interface ArticleRepository extends PagingAndSortingRepository<Article, L
 
     Optional<Article>  findByHeader(String header);
 
-    List<Article> findByCategory(String category);
+    Page<Article> findByCategoryIgnoreCase(String category, Pageable pageable);
 
     Page<Article> findByCategoryIgnoreCaseContainingOrHeaderIgnoreCaseContaining(String category, String header, Pageable pageable);
 

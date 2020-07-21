@@ -59,6 +59,18 @@ public interface ArticleApi {
 , @ApiParam(value = "id") @Valid @PathVariable(value = "id", required = false) Optional<Long> id
     );
 
+    @ApiOperation(value = "get Articles by category", nickname = "getArticlesByCategory", notes = "By passing in the appropriate options, you can search for available inventory in the system ", response = PaginatedArticleModel.class, responseContainer = "Object", tags={ "developers", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "search results matching criteria category", response = PaginatedArticleModel.class, responseContainer = "Object"),
+            @ApiResponse(code = 400, message = "bad input parameter") })
+    @RequestMapping(value = {"/article/category"},
+            produces = { "application/json" },
+            method = RequestMethod.GET)
+    ResponseEntity<PaginatedArticleModel> getArticlesByCateory(@ApiParam(value = "pass an optional search string for looking up article") @Valid @RequestParam(value = "category", required = false) String category
+            ,@Min(0)@ApiParam(value = "number of records to skip for pagination", allowableValues = "") @Valid @RequestParam(value = "skip", required = false) Integer skip
+            ,@Min(0) @Max(50) @ApiParam(value = "maximum number of records to return", allowableValues = "") @Valid @RequestParam(value = "limit", required = false) Integer limit
+    );
+
 
     @ApiOperation(value = "update an article item", nickname = "updateArticle", notes = "Updates an article item to the system", tags={ "admins", })
     @ApiResponses(value = { 

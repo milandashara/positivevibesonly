@@ -71,6 +71,17 @@ public class ArticleApiController implements ArticleApi {
 
     }
 
+    public ResponseEntity<PaginatedArticleModel> getArticlesByCateory(@ApiParam(value = "pass an optional search string for looking up article") @Valid @RequestParam(value = "category", required = false) String category
+            ,@Min(0)@ApiParam(value = "number of records to skip for pagination", allowableValues = "") @Valid @RequestParam(value = "skip", required = false, defaultValue = "0") Integer skip
+            ,@Min(0) @Max(50) @ApiParam(value = "maximum number of records to return", allowableValues = "") @Valid @RequestParam(value = "limit", required = false, defaultValue = "10") Integer limit
+    ) {
+        String accept = request.getHeader("Accept");
+
+            PaginatedArticleModel paginatedArticleModel = articleService.getArticlesByCategory(category, skip, limit);
+            return new ResponseEntity<PaginatedArticleModel>(paginatedArticleModel, HttpStatus.OK);
+
+    }
+
     public ResponseEntity<Void> updateArticle(@ApiParam(value = "article item updated"  )  @Valid @RequestBody Article body
 ) {
         String accept = request.getHeader("Accept");

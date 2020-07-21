@@ -36,13 +36,6 @@ public class ArticleService {
         return saveArticle;
     }
 
-    public List<io.positivevibesonly.model.Article> getArticleByCategory(String category){
-        List<Article> articles = articleRepository.findByCategory(category);
-        List<io.positivevibesonly.model.Article> articleList = articles.stream().map(articleEntity -> {
-            return convertToModel(articleEntity);
-        }).collect(Collectors.toList());
-        return articleList;
-    }
 
     public List<io.positivevibesonly.model.Article> getArticleById(Long id){
         Optional<Article> articleOptional = articleRepository.findById(id);
@@ -69,6 +62,22 @@ public class ArticleService {
     public PaginatedArticleModel searchPaginated(String searchStr, Integer skip, Integer limit){
 
         Page<Article> articlePage = articleRepository.findByCategoryIgnoreCaseContainingOrHeaderIgnoreCaseContaining(searchStr,searchStr,PageRequest.of(skip,limit));
+
+        List<io.positivevibesonly.model.Article> articleList = articlePage.stream().map(articleEntity -> convertToModel(articleEntity)
+        ).collect(Collectors.toList());
+
+        PaginatedArticleModel paginatedArticleModel = new PaginatedArticleModel();
+        paginatedArticleModel.setArticles(articleList);
+        paginatedArticleModel.setPageIndex(articlePage.getNumber());
+        paginatedArticleModel.setPageSize(articlePage.getSize());
+        paginatedArticleModel.setTotalPages(articlePage.getTotalPages());
+        paginatedArticleModel.setTotal(articlePage.getTotalElements());
+        return paginatedArticleModel;
+    }
+
+    public PaginatedArticleModel getArticlesByCategory(String category, Integer skip, Integer limit){
+
+        Page<Article> articlePage = articleRepository.findByCategoryIgnoreCase(category,PageRequest.of(skip,limit));
 
         List<io.positivevibesonly.model.Article> articleList = articlePage.stream().map(articleEntity -> convertToModel(articleEntity)
         ).collect(Collectors.toList());
