@@ -169,7 +169,7 @@ public class Article   {
    * @return createdDateTime
   **/
   @ApiModelProperty(example = "2016-08-29T09:12:33.001Z", required = true, value = "")
-      @NotNull
+
 
     @Valid
     public LocalDateTime getCreatedDateTime() {
@@ -190,7 +190,6 @@ public class Article   {
    * @return updatedDateTime
   **/
   @ApiModelProperty(example = "2016-08-29T09:12:33.001Z", required = true, value = "")
-      @NotNull
 
     @Valid
     public LocalDateTime getUpdatedDateTime() {
