@@ -12,23 +12,18 @@ import { MaterialModule } from './shared/modules/material.module';
 // import { LoginComponent } from './auth/components/login/login.component';
 import { HomeComponent } from './shared/components/home/home.component';
 import { ArticleComponent } from './shared/components/article/article.component';
-import { HealthComponent } from './shared/components/health/health.component';
-import { RelationComponent } from './shared/components/relation/relation.component';
-import { FinanceComponent } from './shared/components/finance/finance.component';
 import { ArticlelistComponent } from './shared/components/articlelist/articlelist.component';
 // import { AuthContainerComponent } from './auth/components/auth-container/auth-container.component';
 // import { RegistrationComponent } from './auth/components/registration/registration.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
 //    LoginComponent,
     HomeComponent,
 ArticleComponent,
-HealthComponent,
-RelationComponent,
-FinanceComponent,
 ArticlelistComponent,
     // AuthContainerComponent,
     // RegistrationComponent
@@ -44,6 +39,7 @@ ArticlelistComponent,
     MenuModule,
     MatPaginatorModule,
     MatTableModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

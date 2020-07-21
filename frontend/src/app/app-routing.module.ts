@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './shared/components/home/home.component';
-import {HealthComponent} from './shared/components/health/health.component';
 // import { LoginComponent } from './auth/components/login/login.component';
 // import { RegistrationComponent } from './auth/components/registration/registration.component';
 
