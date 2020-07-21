@@ -122,6 +122,7 @@ public class ArticleService {
         article.setAuthor(articleEntity.getAuthor());
         article.setCreatedDateTime(articleEntity.getCreatedDate());
         article.setUpdatedDateTime(articleEntity.getLastModifiedDate());
+        article.setId(articleEntity.getId());
         return article;
     }
 
